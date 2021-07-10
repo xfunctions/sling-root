@@ -5,3 +5,12 @@ Composition of the other repositories
 ```
 git clone --recurse-submodules --remote-submodules
 ```
+
+# clone 
+## parent
+```
+mvn
+```
+## platform
+
+## modules
