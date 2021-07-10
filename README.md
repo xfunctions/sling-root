@@ -9,12 +9,12 @@ Composition of the other repositories
 ```
 git clone --recurse-submodules --remote-submodules
 ```
-
-# clone 
-## parent
+# start server
 ```
-mvn
+sling-root/sling-platform/sling-server$ mvn install -P startServer,sling11
 ```
-## platform
 
-## modules
+# build & deploy
+```
+sling-root$ mvn clean install -P deployPackage
+```
