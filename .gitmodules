@@ -1,0 +1,3 @@
+[submodule "modules/sling-bookface"]
+	path = modules/sling-bookface
+	url = https://github.com/xfunctions/sling-bookface
