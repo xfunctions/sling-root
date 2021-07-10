@@ -4,3 +4,6 @@
 [submodule "parent"]
 	path = parent
 	url = https://github.com/xfunctions/parent
+[submodule "sling-platform"]
+	path = sling-platform
+	url = https://github.com/xfunctions/sling-platform
