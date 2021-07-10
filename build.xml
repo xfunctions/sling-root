@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<!--
+  Drag me to the ant view of your ide. Have fun - Dirk Messetat
+-->
+<project name="build" basedir=".">
+
+	<target name="sling-digital-asset-management">
+		<mvn
+				dir="projects/sling-digital-asset-management"
+				profiles="-P deployPackage"
+		/>
+	</target>
+	<target name="sling-digital-asset-management.core">
+		<mvn
+				dir="projects/sling-digital-asset-management/core"
+				profiles="-P installBundle"
+		/>
+	</target>
+	<target name="sling-digital-asset-management.ui-apps">
+		<mvn
+				dir="projects/sling-digital-asset-management/ui.apps"
+				profiles="-P deployPackage"
+		/>
+	</target>
+
+	<target name="sling-digital-asset-management.ui-apps.no-frontend">
+		<mvn
+				dir="projects/sling-digital-asset-management/ui.apps"
+				profiles="-P deployPackage,no-frontend"
+		/>
+	</target>
+	<target name="sling-digital-asset-management.ui-content">
+		<mvn
+				dir="projects/sling-digital-asset-management/ui.content"
+				profiles="-P deployPackage"
+		/>
+	</target>
+
+	<property environment="env" />
+	<!--
+	<property name="env.M2_HOME" value="${env.HOME}/bin/apache-maven-3.0" description="Please override this property in your eclipse ant settings." />
+	-->
+	<property name="env.M2_HOME" value="" />
+	<property name="SETTINGS_XML" value="${env.HOME}/.m2/settings.xml" />
+
+	<property name="env.JAVA_HOME" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home" />
+	<property name="env.JAVA_HOME" value="${java.home}" />
+	<property name="M2_BIN_PATH" value="${env.M2_HOME}/bin" />
+
+
+	<macrodef name="mvn">
+		<attribute name="failonerror" default="true" />
+		<attribute name="targets" default="package" />
+		<attribute name="dir" default="${basedir}" />
+		<attribute name="pom" default="pom.xml" />
+		<attribute name="profiles" default="" />
+		<attribute name="skiptests" default="false" />
+
+		<sequential>
+			<!-- <echoproperties/> -->
+			<echo>cd @{dir}</echo>
+			<exec dir="@{dir}" failonerror="@{failonerror}" executable="echo">
+				<arg value="${mvn}" />
+				<arg line="--settings ${SETTINGS_XML}" />
+				<arg value="--batch-mode" />
+				<arg line="-f @{pom}" />
+				<arg value="-Dmaven.test.skip=@{skiptests}" />
+			<!--
+				<arg value="clean" />
+				-->
+				<arg value="install" />
+					<!-- 
+				<arg value="@{profiles}" />
+					-->
+				<arg value="@{profiles}" />
+
+			</exec>
+			<exec dir="@{dir}" failonerror="@{failonerror}" executable="${mvn}">
+				<arg line="--settings ${SETTINGS_XML}" />
+				<arg value="--batch-mode" />
+				<arg line="-f @{pom}" />
+				<arg value="-Dmaven.test.skip=@{skiptests}" />
+				<arg value="clean" />
+				<arg value="install" />
+				<!--
+				-->
+				<arg value="@{profiles}" />
+
+				<env key="JAVA_HOME" value="${env.JAVA_HOME}" />
+				<env key="MAVEN_OPTS" value="-Xms1024m -Xmx4096m -XX:PermSize=1024m" />
+				<env key="M2_HOME" value="${env.M2_HOME}" />
+			</exec>
+		</sequential>
+	</macrodef>
+
+	<condition property="mvn" value="${M2_BIN_PATH}/mvn.bat">
+		<os family="dos" />
+	</condition>
+	<condition property="mvn" value="${M2_BIN_PATH}/mvn">
+		<not>
+			<isset property="mvn" />
+		</not>
+	</condition>
+</project>
