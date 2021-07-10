@@ -15,51 +15,10 @@
     </build>
 
     <modules>
-        <!--
-        <module>projects/sling-webconsole/logviewer</module>
-        <module>projects/sling-sandbox/core</module>
-        <module>projects/sling-contentmigration</module>
-        -->
         <module>parent</module>
         <module>sling-platform</module>
         <module>modules/sling-bookface</module>
-        <!--
-        <module>platform/sling-platform/sling-packages/sling-core.components/sling-core.components-bundle</module>
-        -->
-        <!--
-        <module>projects/sling-digital-asset-management</module>
-        <module>platform/sling-platform/sling-packages</module>
-        <module>projects/sling-bookface</module>
-        <module>projects/sling-digital-asset-management</module>
-
-        -->
-      <!--
-        <module>projects/sling-digital-asset-management</module>
-        <module>projects/sling-contentmigration/core</module>
- <module>projects/sling-bookface</module>
-      -->
-
-        <!--
         <module>modules/sling-digital-asset-management</module>
-        <module>modules/sling-configmanagement</module>
--->
-
     </modules>
-
-    <profiles>
-        <profile>
-            <id>sling-platform</id>
-            <modules>
-                <module>platform/sling-platform</module>
-            </modules>
-        </profile>
-        <profile>
-            <id>sling-digital-asset-management</id>
-            <modules>
-                <module>platform/sling-platform</module>
-                <module>projects/sling-digital-asset-management</module>
-            </modules>
-        </profile>
-    </profiles>
 
 </project>

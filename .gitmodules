@@ -7,3 +7,6 @@
 [submodule "sling-platform"]
 	path = sling-platform
 	url = https://github.com/xfunctions/sling-platform
+[submodule "modules/sling-digital-asset-management"]
+	path = modules/sling-digital-asset-management
+	url = https://github.com/xfunctions/sling-digital-asset-management
