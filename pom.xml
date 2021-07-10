@@ -21,6 +21,8 @@
         <module>projects/sling-contentmigration</module>
         -->
         <module>parent</module>
+        <module>sling-platform</module>
+        <module>modules/sling-bookface</module>
         <!--
         <module>platform/sling-platform/sling-packages/sling-core.components/sling-core.components-bundle</module>
         -->
