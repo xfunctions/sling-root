@@ -13,6 +13,11 @@ git clone --recurse-submodules --remote-submodules
 ```
 sling-root/sling-platform/sling-server$ mvn install -P startServer,sling11
 ```
+or
+```
+docker/docker-compose.up.command
+```
+
 
 # build & deploy
 ```
