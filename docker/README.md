@@ -1,5 +1,5 @@
 # download server starter jar
-mvn dependency:get -Dartifact=groupId:artifactId:version
+mvn dependency:copy -Dartifact=groupId:artifactId:version
 ```
 mvn dependency:copy -Dartifact=org.apache.sling:org.apache.sling.starter:11 -DoutputDirectory=.
 ```
